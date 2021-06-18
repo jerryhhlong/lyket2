@@ -1,22 +1,52 @@
-<script src="https://unpkg.com/@lyket/widget@latest/dist/lyket.js?apiKey=e74749c0d6d65e649ad275ed94b19a"></script>
-<!-- button with color scheme -->
-<div
-  data-lyket-type="updown"
-  data-lyket-id="hanh-tinh"
-  data-lyket-color-primary="#b8fff3"
-  data-lyket-color-secondary="rgba(220, 234, 108, 0.6)"
-  data-lyket-color-background="rgba(255, 224, 138, 0.4)"
-  data-lyket-color-text="black"
-  data-lyket-color-icon="violet"
-  data-lyket-color-highlight="#ff00c3"
-></div>
-<div
-  data-lyket-type="updown"
-  data-lyket-id="hanh-tai"
-  data-lyket-color-primary="#b8fff3"
-  data-lyket-color-secondary="rgba(220, 234, 108, 0.6)"
-  data-lyket-color-background="rgba(255, 224, 138, 0.4)"
-  data-lyket-color-text="black"
-  data-lyket-color-icon="violet"
-  data-lyket-color-highlight="#ff00c3"
-></div>
+<style>
+  /* (A) CONTAINERS */
+.likedis {
+  width: 150px;
+  margin: 5px;
+}
+.likedis.notxt { width: 80px; }
+.likedis, .likedis .up, .likedis .down { display: flex; }
+
+/* (B) LIKE DISLIKE BUTTONS */
+.likedis .up, .likedis .down {
+  align-items: center;
+  width: 50%;
+  cursor: pointer;
+}
+
+/* (C) THUMBS ICON */
+.likedis .icoup, .likedis .icodown {
+  width: 24px; height: 24px;
+  background: url("likedislike.png");
+}
+.likedis .icodown { background-position: -48px; }
+
+/* (D) TEXT OR COUNT */
+.likedis .txtup, .likedis .txtdown {
+  color: #989898;
+  font-weight: 700;
+  flex-grow: 1;
+  text-align: center;
+}
+
+/* (E) LIKED + DISLIKED */
+.likedis[data-like="1"] .icoup { background-position: -24px; }
+.likedis[data-like="1"] .txtup { color: #2a3c94; }
+.likedis[data-like="-1"] .icodown { background-position: -72px; }
+.likedis[data-like="-1"] .txtdown { color: #a02727; }
+</style>
+<body>
+<div id="demo" class="likedis" data-like="0">
+  <!-- UPVOTE -->
+  <div class="up">
+    <div class="icoup"></div>
+    <div class="txtup"></div>
+  </div>
+ 
+  <!-- DOWNVOTE -->
+  <div class="down">
+    <div class="icodown"></div>
+    <div class="txtdown"></div>
+  </div>
+</div>
+</body>
